@@ -1,0 +1,31 @@
+<div class="footer-chat scrollbar chat-background" id="style-2" #scrollMe>
+
+  <ng-container *ngFor="let message of messages | async; let i = index; last as isLast">
+    <div class="message bubble"
+         [ngClass]="{'from me' : message.sentBy === 'Nuavo',
+                'to you' : message.sentBy === 'You'}">
+      <span style="color:darkcyan; font-weight:bold">{{message.sentBy}}</span>
+      <br />
+      <div [innerHTML]="message.contant  | linkify"> </div>
+      <ng-container *ngFor="let subMessage of message.subMessages">
+        {{subMessage}}<br>
+      </ng-container>
+      <div *ngIf="message.sentBy === 'Nuavo'">
+        <vote></vote>
+      </div>
+      <br />
+      <div><p style="font-size:small;text-align:right; color:darkcyan;font-weight:bold">{{message.showtime | date:'MMM d, y h:mm:ss a'}}</p></div>
+    </div>
+
+  </ng-container>
+
+</div>
+<div class="input-group mb-3 footer">
+  <input [(ngModel)]="formValue" (keyup.enter)="sendMessage()" type="text" style="width:70%;"
+         placeholder="Enter Your Message" aria-label="Enter Your Message" aria-describedby="button-addon2">
+
+  <div class="input-group-append">
+    <button (click)="sendMessage()" class="btn send-style" value=""
+            type="button" id="button-addon2"></button>
+  </div>
+</div>

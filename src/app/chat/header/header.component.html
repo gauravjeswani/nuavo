@@ -1,0 +1,15 @@
+<div style="width: 50%; float:left;">
+  <div style="font-weight: bold;"><h2>Nuavo</h2></div>
+  <div class="fas fa-users">  A virtual Assistant </div>
+</div>
+<div style="width: 50%; float:right;">
+  <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner">
+      <ng-container *ngFor="let fact of childSupportfacts; let i = index;">
+        <div class="carousel-item" [class.active]="i===1">
+          <p style="font-weight: bold;">{{fact}}</p>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+</div>
