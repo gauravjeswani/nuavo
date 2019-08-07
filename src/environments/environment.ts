@@ -6,18 +6,6 @@ export const environment = {
   production: false,
 
  
-  dialogflow: {
-    angularBot: ''
-  },
-  
-  firebase: {
-    apiKey: '',
-    authDomain: '',
-    databaseURL: '',
-    projectId: '',
-    storageBucket: '',
-    messagingSenderId: ''
-}
 };
 
 /*

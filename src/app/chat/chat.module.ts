@@ -17,6 +17,7 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { VoteComponent } from './vote/vote.component';
 import { VoteService } from './vote.service';
 import { ChatboxComponent } from './chatbox/chatbox.component';
+import { FeedbackComponent } from './feedback/feedback.component';
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
 import { HelpComponent } from './help/help.component';
@@ -34,11 +35,11 @@ import { ReadMoreComponent } from './read-more/read.more.component';
     AngularFirestoreModule
   ],
   declarations: [ChatDialogComponent, ChatboxComponent,
-    FooterComponent, HeaderComponent,
+    FeedbackComponent, FooterComponent, HeaderComponent,
     HelpComponent, ReadMoreComponent,
     LinkifyPipe, VoteComponent],
   exports: [ChatDialogComponent],
-  providers: [ChatService, VoteService, ChatboxComponent],
+  providers: [ChatService, VoteService, ChatboxComponent, FeedbackComponent],
 })
 export class ChatModule {
 }
