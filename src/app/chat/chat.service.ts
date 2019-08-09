@@ -32,6 +32,8 @@ export class ChatService {
 
   private feedbackCollection: AngularFirestoreCollection<any>;
 
+  private intentCalled: String;
+
   constructor(private afs: AngularFirestore) {
     this.feedbackCollection = this.afs.collection<any>('/defaultIntentResponse');
   }
@@ -46,6 +48,10 @@ export class ChatService {
 
   }
 
+  getIntentCalled() {
+    return this.intentCalled;
+  }
+
 
 
   converse(msg: string) {
@@ -54,6 +60,9 @@ export class ChatService {
     this.update(this.userMessage);
     return this.client.textRequest(msg).then(res => {
       let speech = res.result.fulfillment.speech;
+
+      this.intentCalled = res.result.metadata.intentName;
+
       if (res.result.metadata.intentName == 'Default Fallback Intent') {
         console.log(message);
         this.defaultResponseIntent(message, res.result.metadata.intentId, res.result.metadata.intentName);
@@ -71,7 +80,7 @@ export class ChatService {
 
         }
       }
-      const botMessage = new Message(speech, 'Nuavo', Date.now(), subMessages);
+      const botMessage = new Message(speech, 'Nuovo', Date.now(), subMessages);
       this.update(botMessage);
 
 

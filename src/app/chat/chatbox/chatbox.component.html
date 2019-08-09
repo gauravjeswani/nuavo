@@ -2,7 +2,7 @@
 
   <ng-container *ngFor="let message of messages | async; let i = index; last as isLast">
     <div class="message bubble"
-         [ngClass]="{'from me' : message.sentBy === 'Nuavo',
+         [ngClass]="{'from me' : message.sentBy === 'Nuovo',
                 'to you' : message.sentBy === 'You'}">
       <span style="color:darkcyan; font-weight:bold">{{message.sentBy}}</span>
       <br />
@@ -10,7 +10,7 @@
       <ng-container *ngFor="let subMessage of message.subMessages">
         {{subMessage}}<br>
       </ng-container>
-      <div *ngIf="message.sentBy === 'Nuavo'">
+      <div *ngIf="message.sentBy === 'Nuovo'">
         <vote></vote>
       </div>
       <br />

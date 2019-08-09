@@ -1,6 +1,9 @@
 <div class="accordion-image start-help scrollbar" style="overflow-x:hidden;" id="accordionExample">
   <div style="height:10px;"></div>
   <h1 style="color:orange; padding-left: 10px;"><b>Quick Help</b></h1>
+
+
+
   <div class="card-new">
     <div class="card-header" id="headingOne">
       <ng-container *ngFor="let helpSection of helpSections">
@@ -12,13 +15,14 @@
             </h5>
           </div>
 
-          <div id="helpSection{{helpSection.id}}" class="collapse faq-fontcolor" aria-labelledby="helpSection.headerId" data-parent="#accordionExample">
+
+          <div id="helpSection{{helpSection.id}}" class="collapse faq-fontcolor" [ngClass]="{'show': getGroup() == helpSection.label }" aria-labelledby="helpSection.headerId" data-parent="#accordionExample">
             <div class="card-body link-font">
               <ul>
                 <li *ngFor="let intent of helpSection.intents" class="angle-right">
                   {{intent}}
                   <button (click)="sendMessageFromLink(intent)" class="btn btn-link" type="button">
-                    Ask Nuavo
+                    Ask Nuovo
                   </button>
                   <hr>
                 </li>
@@ -30,4 +34,6 @@
     </div>
 
   </div>
+
+
 </div>

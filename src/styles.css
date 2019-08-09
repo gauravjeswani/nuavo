@@ -170,7 +170,6 @@ button {
 }
 
 .accordion-image {
-  background-image: url("..\src\assets\images\Siemens-Logo.png");
   background-repeat: no-repeat;
   width: 100%;
   background-size: contain;
@@ -526,6 +525,13 @@ ul {
     color: #f70;
   }
 
+.backimage {
+  background-image: url("..\src\assets\images\Siemens_Logo.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: right;
+  z-index: 1000;
+}
 
 
   .rating:not(:checked) > label:hover,
